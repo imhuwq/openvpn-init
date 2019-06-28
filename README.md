@@ -11,4 +11,4 @@ scripts to setup a openvpn server quickly
 - `07_prepare_client.sh ${server_ip}` create config template for client config
 
 ## Create Client Config
-`00_build_key_client.sh ${client_name}` create config for client
+- `00_create_client.sh ${client_name}` create config for client
