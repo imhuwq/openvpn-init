@@ -1,3 +1,8 @@
+if [ $# -eq 0 ]
+then
+  echo -e "you must provide client name as argument\n"
+fi
+
 cd openvpn-ca
 source ./vars
 export KEY_NAME="${1}"

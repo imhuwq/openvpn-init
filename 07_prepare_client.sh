@@ -1,3 +1,8 @@
+if [ $# -eq 0 ]
+then
+  echo -e "you must provide server IP as argument\n"
+fi
+
 mkdir -p client-cfg/clients
 chmod 700 client-cfg/clients
 cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf client-cfg/base.conf
