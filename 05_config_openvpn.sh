@@ -1,7 +1,9 @@
-source openvpn-ca/vars
-cd openvpn-ca/keys
+top=`pwd`
+cd openvpn-ca
+source vars
+cd keys
 sudo cp ca.crt "${KEY_NAME}.crt" "${KEY_NAME}.key" ta.key dh2048.pem /etc/openvpn
-cd ../../
+cd ${top}
 rm -rf openvpn-cfg
 mkdir -p openvpn-cfg
 cd openvpn-cfg
@@ -16,8 +18,8 @@ sed -i "s/;user nobody/user nobody/g" server.conf
 sed -i "s/;group nogroup/group nogroup/g" server.conf
 sed -i "s/server 10.8.0.0 255.255.255.0/server 10.0.0.0 255.255.255.0/g" server.conf
 sed -i "s/;client-to-client/client-to-client/g" server.conf
-sed -i "s/cert server.crt/cert server.sophie.crt/g" server.conf
-sed -i "s/key server.key/key server.sophie.key/g" server.conf
+sed -i "s/cert server.crt/cert ${KEY_NAME}.crt/g" server.conf
+sed -i "s/key server.key/key ${KEY_NAME}.key/g" server.conf
 
 sudo rm -rf "/etc/openvpn/${KEY_NAME}.conf"
 sudo cp server.conf "/etc/openvpn/${KEY_NAME}.conf"

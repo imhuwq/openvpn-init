@@ -1,7 +1,7 @@
 cd openvpn-ca
 source ./vars
 
-./build-key-server server.sophie << EOF
+./build-key-server ${KEY_NAME} << EOF
 
 
 

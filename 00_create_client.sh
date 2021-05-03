@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ $# -eq 0 ]
 then
   echo -e "you must provide client name as argument\n"
